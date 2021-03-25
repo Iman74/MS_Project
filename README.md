@@ -32,6 +32,9 @@
 | PC |-|-||
 | WB register |-|-||
 
+# Testbench
+(edit by neda)
+
 
 
 
