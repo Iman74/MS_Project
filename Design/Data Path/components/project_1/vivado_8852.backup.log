@@ -1,0 +1,35 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Fri Apr  2 16:03:25 2021
+# Process ID: 8852
+# Current directory: D:/desktop/study_document/.microelectronic/DLX_proj/MS_Project/Design/Data Path/components/project_1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1432 D:\desktop\study_document\.microelectronic\DLX_proj\MS_Project\Design\Data Path\components\project_1\project_1.xpr
+# Log file: D:/desktop/study_document/.microelectronic/DLX_proj/MS_Project/Design/Data Path/components/project_1/vivado.log
+# Journal file: D:/desktop/study_document/.microelectronic/DLX_proj/MS_Project/Design/Data Path/components/project_1\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {D:/desktop/study_document/.microelectronic/DLX_proj/MS_Project/Design/Data Path/components/project_1/project_1.xpr}
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'D:/desktop/study_document/.microelectronic/DLX_proj/MS_Project/Design/Data Path/components/project_1'
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/vivado/XILINX/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:07 . Memory (MB): peak = 744.105 ; gain = 121.859
+update_compile_order -fileset sources_1
+add_files -norecurse {{D:/desktop/study_document/.microelectronic/DLX_proj/MS_Project/Design/Data Path/components/project_1/project_1.srcs/sources_1/new/sipisoAluControl.vhd} {D:/desktop/study_document/.microelectronic/DLX_proj/MS_Project/Design/Data Path/components/project_1/project_1.srcs/sources_1/new/registerfile.vhd} {D:/desktop/study_document/.microelectronic/DLX_proj/MS_Project/Design/Data Path/components/project_1/project_1.srcs/sources_1/new/sipisoalu.vhd}}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+set_property top register_file [current_fileset]
+update_compile_order -fileset sources_1
+close [ open {D:/desktop/study_document/.microelectronic/DLX_proj/MS_Project/Design/Data Path/components/project_1/project_1.srcs/sources_1/new/data_mem.vhd} w ]
+add_files {{D:/desktop/study_document/.microelectronic/DLX_proj/MS_Project/Design/Data Path/components/project_1/project_1.srcs/sources_1/new/data_mem.vhd}}
+close [ open {D:/desktop/study_document/.microelectronic/DLX_proj/MS_Project/Design/Data Path/components/project_1/project_1.srcs/sources_1/new/ins_mem.vhd} w ]
+add_files {{D:/desktop/study_document/.microelectronic/DLX_proj/MS_Project/Design/Data Path/components/project_1/project_1.srcs/sources_1/new/ins_mem.vhd}}
+update_compile_order -fileset sources_1
+set_property top top_layer [current_fileset]
+update_compile_order -fileset sources_1
+exit

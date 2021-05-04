@@ -23,10 +23,10 @@
 
 # Components to be done
 
-| Component | Input | Output | Description |
-|:---:|:---:|:---:|:---|
-| Instruction memory | addr(8bit) | instr_out(32bit) | ROM |
-| Data memory | addr(8bit)</br> datain(32bit)|dataout(32bit)| RAM |
+| Component | Input | Output | Description | state|
+|:---:|:---:|:---:|:---|:---:|
+| Instruction memory | addr(8bit) | instr_out(32bit) | ROM | done |
+| Data memory | addr(8bit)</br> datain(32bit)|dataout(32bit)| RAM | done |
 | Booth multiplier |-|-||
 | Divider |-|-||
 | PC |-|-||

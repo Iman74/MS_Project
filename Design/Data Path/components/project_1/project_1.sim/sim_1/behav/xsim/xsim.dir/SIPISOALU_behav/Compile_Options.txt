@@ -1,0 +1,1 @@
+-wto "92e8f11aff4746d396392978c13fda83" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "SIPISOALU_behav" "xil_defaultlib.SIPISOALU" -log "elaborate.log" 

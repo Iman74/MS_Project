@@ -1,0 +1,12 @@
+
+{ 
+    crc :  2968649522240674722  , 
+    ccp_crc :  0  , 
+    cmdline : " -wto 92e8f11aff4746d396392978c13fda83 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot SIPISOALU_behav xil_defaultlib.SIPISOALU" , 
+    buildDate : "Dec  7 2018" , 
+    buildTime : "00:33:28" , 
+    linkCmd : "D:\\vivado\\XILINX\\Vivado\\2018.3\\data\\..\\tps\\mingw\\6.2.0\\win64.o\\nt\\bin\\gcc.exe -Wa,-W  -O -Wl,--stack,104857600 -o \"xsim.dir/SIPISOALU_behav/xsimk.exe\"   \"xsim.dir/SIPISOALU_behav/obj/xsim_0.win64.obj\" \"xsim.dir/SIPISOALU_behav/obj/xsim_1.win64.obj\" -L\"D:\\vivado\\XILINX\\Vivado\\2018.3\\lib\\win64.o\" -lrdi_simulator_kernel  -lrdi_simbridge_kernel" , 
+    aggregate_nets : 
+    [ 
+    ] 
+} 

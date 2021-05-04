@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/desktop/study_document/.microelectronic/DLX_proj/MS_Project/Design/Data Path/components/project_1/project_1.srcs/sources_1/new/sipisoAluControl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'sipisoAluControl'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/desktop/study_document/.microelectronic/DLX_proj/MS_Project/Design/Data Path/components/project_1/project_1.srcs/sources_1/new/sipisoalu.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'SIPISOALU'

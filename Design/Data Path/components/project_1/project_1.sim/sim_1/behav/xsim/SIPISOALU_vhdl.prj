@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../project_1.srcs/sources_1/new/sipisoAluControl.vhd" \
+"../../../../project_1.srcs/sources_1/new/sipisoalu.vhd" \
+
+# Do not sort compile order
+nosort

@@ -3,102 +3,116 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
-entity SIPISOALU is 
-	Port (	CLK	:	In	std_logic;
-		RESET	:  	In      std_logic;
-		STARTA	:  	In 	std_logic;
-		A	:	In	std_logic;
-		LOADB	:	In 	std_logic;
-		B	:	In	std_logic_vector(3 downto 0);
-		STARTC	:	Out	std_logic;
-		C	:	Out	std_logic);
-end SIPISOALU; 
+entity ALU is 
+	Port (
+	OP1: in std_logic_vector(31 downto 0);
+	OP2: in std_logic_vector(31 downto 0);
+	OP_SL: in std_logic_vector(10 downto 0);
+	O_reg: out std_logic_vector(31 downto 0);
+	O_branch: out std_logic_vector(31 downto 0);
+	O_WB: out std_logic_vector(31 downto 0);
+	CLK: in std_logic);
+end ALU; 
 
+architecture behavior of ALU is
+signal o: std_logic_vector(31 downto 0);
+signal add_o: std_logic_vector(31 downto 0);
+--signal sub_o: std_logic_vector(31 downto 0);
+signal sh_l_o: std_logic_vector(31 downto 0);
+--signal sh_r_o: std_logic_vector(31 downto 0);
+signal c_sh_l_o: std_logic_vector(31 downto 0);
+--signal c_sh_r_o: std_logic_vector(31 downto 0);
+signal mul_o: std_logic_vector(31 downto 0);
+signal div_o: std_logic_vector(31 downto 0);
+signal mul_1,mul_2: std_logic_vector(15 downto 0);
 
+--component definition
+component add is 
+port(
+    a,b: in std_logic_vector(31 downto 0);
+    c: out std_logic_vector(31 downto 0);
+    cout: out std_logic
+);
+end component;
 
-architecture A of SIPISOALU is
+component sh_l is
+port (
+    a,b: in std_logic_vector(31 downto 0);-- a <- b bit, if b<0 dir: ->
+    c: out std_logic_vector(31 downto 0)
+);
+end component;
 
-	signal SIPO		 : std_logic_vector(2 downto 0) := "000";
-	signal SIPOA, PIPO, PISO : std_logic_vector(3 downto 0) := "0000";
-	signal SUM		 : std_logic_vector(4 downto 0) := "00000";
-	signal EA, LDB		 : std_logic := '0';
-	signal LDC, SHIFTC	 : std_logic := '0';
-	signal count, next_count : integer range 0 to 3 := 0;	
+component c_sh_l is 
+port(
+    a,b: in std_logic_vector(31 downto 0);-- a <- b bit, if b<0 dir: ->
+    c: out std_logic_vector(31 downto 0)
+);
+end component;
 
+component mul is
+port(
+    a,b: in std_logic_vector(15 downto 0);
+    c: out std_logic_vector(31 downto 0)
+);
+end component;
 
-	-- FSM component declaration
-	component sipisoAluControl
-	port (
-		clk, rst, strobeA, strobeB: in std_logic;
-		shiftA, loadB, loadC, shiftC, startC: out std_logic
-	);
-	end component;
+component div is
+port (
+    a,b: in std_logic_vector(31 downto 0);
+    c: out std_logic_vector(31 downto 0)
+); 
+end component;
 
-	-- begin architecture
-	begin
+begin
+    mul_1<=OP1(15 downto 0);
+    mul_2<=OP2(15 downto 0);
+    
+    adder: add port map(a=>OP1,b=>OP2,c=>add_o);
+    shifter: sh_l port map(a=>OP1,b=>OP2,c=>sh_l_o);
+    c_shifter: c_sh_l port map(a=>OP1,b=>OP2,c=>c_sh_l_o);
+    multiplier: mul port map(a=>mul_1,b=>mul_2,c=>mul_o);
+    divider: div port map(a=>OP1,b=>OP2,c=>div_o);
+    
+    process(OP1,OP2,OP_SL)
+    begin
+    --00000000000 to 00000000101 are + - sh_r sh_l c_sh_r c_shl and or xor nor inv
+        if OP_SL="0000000000" then
+            o<=add_o;
+--        elsif OP_SL="0000000001" then
+--            o<=sub_o;
+        elsif OP_SL="0000000010" then
+            o<=sh_l_o;
+--        elsif OP_SL="0000000011" then
+--            o<=sh_r_o;
+        elsif OP_SL="0000000100" then
+            o<=c_sh_l_o;
+--        elsif OP_SL="0000000101" then
+--            o<=c_sh_r_o;
+        elsif OP_SL="0000000110" then
+            o<= OP1 and OP2;
+        elsif OP_SL="0000000111" then
+            o<= OP1 or OP2;
+        elsif OP_SL="0000001000" then
+            o<= OP1 xor OP2;
+        elsif OP_SL="0000001001" then
+            o<= OP1 nor OP2;   
+        --00000001010 to 00000001011 are * /
+        elsif OP_SL="0000001010" then
+            o<= mul_o;
+        elsif OP_SL="0000001011" then
+            o<= div_o;
+        else
+            null;
+        end if;        
+    end process;
 
-
-		SIPO_3BIT_A: process(CLK, RESET)
-		begin
-			if(RESET='1')
-				then SIPO <= (others => '0');
-			elsif (CLK'event and CLK='1')
-				then
-					if(EA='1')
-						then SIPO <= SIPO(1 downto 0) & A;
-					end if;
-			end if;
-		end process;
-
-		SIPOA <= SIPO & a;
-
-
-		PIPO_4BIT_B: process(CLK, RESET)
-		begin
-			if(RESET='1')
-				then PIPO <= (others => '0');
-			elsif (CLK'event and CLK='1')
-				then
-					if(LDB='1')
-						then PIPO <= B;
-					end if;
-			end if;
-		end process;
-
-
-		PISO_4BIT_C: process(CLK, RESET)
-		begin
-			if(RESET='1')
-				then PISO <= (others => '0');
-			elsif (CLK'event and CLK='1')
-				then
-					if(LDC='1')
-						then PISO <= SUM(3 downto 0);
-					elsif(SHIFTC='1')
-						then PISO <= '0' & PISO(3 downto 1);
-					end if;
-			end if;
-		end process;
-
-
-		C <= PISO(0);
-
-		SUM <= ('0' & PIPO) + ('0' & SIPOA);
-
-
-	-- FSM instance port map
-	control: sipisoAluControl
-	port map(
-		clk => CLK,
-		rst => RESET,
-		strobeA => STARTA,
-		strobeB => LOADB,
-		shiftA => EA,
-		loadB => LDB,
-		loadC => LDC,
-		shiftC => SHIFTC,
-		startC => STARTC
-	);
-
-end A;
+    process(clk)
+    begin
+        if (clk'event and clk='1') then
+            O_reg<=o;
+            O_branch<=o;
+            O_WB<=o;
+        end if;
+    end process;
+end behavior;
 
