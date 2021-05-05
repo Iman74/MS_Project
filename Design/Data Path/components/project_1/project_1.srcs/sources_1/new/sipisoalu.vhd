@@ -63,6 +63,13 @@ port (
 ); 
 end component;
 
+component logic_op is
+Port ( OP1 : in STD_LOGIC_VECTOR (31 downto 0);
+       OP2 : in STD_LOGIC_VECTOR (31 downto 0);
+       SL: in STD_LOGIC_VECTOR (3 downto 0);
+       logic_out : out STD_LOGIC_VECTOR (31 downto 0));
+end component;
+
 begin
     mul_1<=OP1(15 downto 0);
     mul_2<=OP2(15 downto 0);
