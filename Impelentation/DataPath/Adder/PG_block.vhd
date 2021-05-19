@@ -1,7 +1,7 @@
 library IEEE;
 
 use IEEE.std_logic_1164.all;
-use WORK.constants.all;
+--use WORK.ADDER_CONSTANTS.all;
 
 entity PG_block is 
 	Port (	PG_IN_first_P:	In	std_logic;--PG bit 0 is LSB and bit 1 is MSB Propagate with lower index

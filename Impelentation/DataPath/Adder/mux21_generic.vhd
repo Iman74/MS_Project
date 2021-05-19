@@ -1,11 +1,10 @@
 library IEEE;
 
 use IEEE.std_logic_1164.all;
-use WORK.constants.all;
-use work.constants.all;
+--use work.ADDER_CONSTANTS.all;
 
 entity MUX21_GENERIC is
-GENERIC (NBIT: integer:= NumBit);
+GENERIC (NBIT: integer:= 32);
 	Port (	A:	In	std_logic_vector(NBIT-1 downto 0) ;
 			B:	In	std_logic_vector(NBIT-1 downto 0);
 			SEL:	In	std_logic;

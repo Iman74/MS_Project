@@ -1,12 +1,12 @@
 library ieee; 
 use ieee.std_logic_1164.all; 
 use ieee.std_logic_unsigned.all;
-use work.constants.all;
+--use work.ADDER_CONSTANTS.all;
 
 entity carry_generator is 
-	generic (NBIT_GEN: integer:= NumBit_generator;
-			 NBIT_Co: integer:= NumBit_carry_provided;
-			 N_ITERATION: integer:=NumBit_iteration); -- number of iteration=log2(numbit_generator)
+	generic (NBIT_GEN: integer:= 32;
+			 NBIT_Co: integer:= 8;
+			 N_ITERATION: integer:=5); -- number of iteration=log2(numbit_generator)
 	Port (	ADD_1:	In	std_logic_vector(NBIT_GEN-1 downto 0);
 		    ADD_2:	In	std_logic_vector(NBIT_GEN-1 downto 0);
 		    Ci_carry_gen:	In	std_logic; -- carry in of carry generator block that is the same of the whole system

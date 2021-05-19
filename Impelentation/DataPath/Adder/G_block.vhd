@@ -1,7 +1,7 @@
 library IEEE;
 
 use IEEE.std_logic_1164.all;
-use WORK.constants.all;
+--use WORK.ADDER_CONSTANTS.all;
 
 entity G_block is 
 	Port (	PG_IN_1:	In	std_logic; -- input from PG 

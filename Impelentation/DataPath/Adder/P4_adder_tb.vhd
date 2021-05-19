@@ -1,7 +1,7 @@
 library ieee; 
 use ieee.std_logic_1164.all; 
 use ieee.numeric_std.all; -- we need a conversion to unsigned 
-use work.constants.all;
+use work.ADDER_CONSTANTS.all;
 
 entity TBRCA is 
 end TBRCA; 

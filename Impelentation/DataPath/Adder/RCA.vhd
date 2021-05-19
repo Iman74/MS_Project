@@ -1,7 +1,7 @@
 library ieee; 
 use ieee.std_logic_1164.all; 
 use ieee.std_logic_unsigned.all;
-use work.constants.all;
+--use work.ADDER_CONSTANTS.all;
 
 entity RCA is 
 	generic (NBIT: integer:= 4);
