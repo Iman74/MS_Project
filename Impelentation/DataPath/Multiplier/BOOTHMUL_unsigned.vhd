@@ -11,7 +11,7 @@ entity BOOTHMUL is
            MUL_RESULT : out STD_LOGIC_VECTOR ((IN_WIDTTH1+IN_WIDTTH2)-1 downto 0));
 end BOOTHMUL;
 
-architecture Structural of BOOTHMUL is
+architecture Structural_US of BOOTHMUL is
 --Booth Encoder
     component BoothEncoder is
         Port ( INPUT : in STD_LOGIC_VECTOR (2 downto 0);
@@ -109,4 +109,4 @@ begin
     MUL_RESULT <= exception_result when OP1(IN_WIDTTH1-1) = '1' else
                   RCA_out((IN_WIDTTH1/2)-1) ;
 
-end Structural;
+end Structural_US;

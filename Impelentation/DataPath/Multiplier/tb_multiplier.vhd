@@ -2,7 +2,6 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 USE ieee.numeric_std.ALL;
-
 --use WORK.constants.all;
 
 entity MULTIPLIER_tb is
@@ -49,7 +48,7 @@ DUT : BOOTHMUL GENERIC MAP (numBit,numBit)
     NumROW : for i in 0 to 2**(NumBit)-1 loop
 
         -- cycle for operand B
-    	NumCOL : for i in 0 to 2**(NumBit)-1 loop
+    	NumCOL : for j in 0 to 2**(NumBit)-1 loop
             wait for 10 ns;
             assert (Y_mp_i = B_mp_i*A_mp_i) 
                     report 

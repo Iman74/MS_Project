@@ -11,7 +11,7 @@ entity BOOTHMUL is
            MUL_RESULT : out STD_LOGIC_VECTOR ((IN_WIDTTH1+IN_WIDTTH2)-1 downto 0));
 end BOOTHMUL;
 
-architecture Structural of BOOTHMUL is
+architecture Structural_S of BOOTHMUL is
     component RCAdder is
     generic (N: integer:= 6);
 	Port (	A:	In	std_logic_vector(N-1 downto 0);
@@ -142,4 +142,4 @@ begin
 
 
     
-end Structural;
+end Structural_S;
