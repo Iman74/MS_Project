@@ -32,10 +32,10 @@ end DLX;
 
 -- This architecture is currently not complete
 -- it just includes:
--- instruction register (complete)
--- program counter (complete)
--- instruction ram memory (complete)
--- control unit (UNCOMPLETE)
+    -- instruction register (complete)
+    -- program counter (complete)
+    -- instruction ram memory (complete)
+    -- control unit (UNCOMPLETE)
 --
 architecture dlx_rtl of DLX is
 
@@ -201,8 +201,5 @@ architecture dlx_rtl of DLX is
           RF_WE           => RF_WE_i);
           
           -- IMPLEMENTS DATAPATH
-
-
-    
     
 end dlx_rtl;
