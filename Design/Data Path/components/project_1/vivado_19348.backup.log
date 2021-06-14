@@ -2,10 +2,10 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sun Jun 13 17:58:07 2021
-# Process ID: 14288
+# Start of session at: Sun Jun 13 17:36:18 2021
+# Process ID: 19348
 # Current directory: D:/desktop/study_document/.microelectronic/DLX_proj/MS_Project/Design/Data Path/components/project_1
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent19640 D:\desktop\study_document\.microelectronic\DLX_proj\MS_Project\Design\Data Path\components\project_1\project_1.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4076 D:\desktop\study_document\.microelectronic\DLX_proj\MS_Project\Design\Data Path\components\project_1\project_1.xpr
 # Log file: D:/desktop/study_document/.microelectronic/DLX_proj/MS_Project/Design/Data Path/components/project_1/vivado.log
 # Journal file: D:/desktop/study_document/.microelectronic/DLX_proj/MS_Project/Design/Data Path/components/project_1\vivado.jou
 #-----------------------------------------------------------
@@ -18,6 +18,7 @@ Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/vivado/XILINX/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:07 . Memory (MB): peak = 728.867 ; gain = 145.602
 update_compile_order -fileset sources_1
 exit
-INFO: [Common 17-206] Exiting Vivado at Sun Jun 13 18:06:04 2021...
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 13 17:37:07 2021...
