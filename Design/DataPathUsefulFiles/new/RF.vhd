@@ -7,7 +7,7 @@ entity register_file is
     Generic (nbit_address : natural :=5;
              nbit_data  : natural :=64 );
     port (  CLK: 		IN std_logic;
-            RESET: 	IN std_logic;
+            RESET: 	    IN std_logic;
             ENABLE: 	IN std_logic;
             RD1: 		IN std_logic;
             RD2: 		IN std_logic;
